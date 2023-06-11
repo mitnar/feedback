@@ -5,7 +5,7 @@ function Main() {
 
   return (
       <section>
-        <button type="button">Войти</button>
+        <Link to="/login">Войти</Link>
         <Link to="/register">Зарегистрироваться</Link>
       </section>
   )

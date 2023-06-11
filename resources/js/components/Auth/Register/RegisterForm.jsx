@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './RegisterForm.module.css'
+import styles from '../Auth.module.css';
 
 function RegisterForm(props) {
   const {

@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterForm from '../components/Register/RegisterForm';
+import RegisterForm from '../components/Auth/Register/RegisterForm';
 import api from '../api';
 import { useNavigate } from "react-router-dom";
 

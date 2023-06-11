@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import api from '../api';
 
 const FeedbackContext = React.createContext();
 
 function FeedbackContextProvider(props) {
 
-    //const [itemsInCart, setItemsInCart] = useState([]);
+    const { getAuthorizedUserRequest } = api;
+
+    const checkAuth = async () => {
+        try {
+          const response = await getAuthorizedUserRequest('check-auth');
+          return response.data.authenticated;
+        } catch (error) {
+          return false;
+        }
+    };
 
     const value = {
+        checkAuth
     };
 
     return (
