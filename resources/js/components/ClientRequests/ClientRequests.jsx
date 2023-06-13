@@ -28,8 +28,9 @@ function ClientRequests(props) {
 
     return (
         {authenticatedUser} &&
-        (   <div>
-                <table className={styles.table}>
+        (
+            <div className={styles['requests-container']}>
+                 <table className={styles.table}>
                     <thead>
                         <tr>
                             <th className={styles['table-field']}>ID</th>

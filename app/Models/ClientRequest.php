@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Carbon\Carbon;
 
 class ClientRequest extends Model
 {
@@ -18,5 +19,10 @@ class ClientRequest extends Model
     public function file(): HasOne
     {
         return $this->hasOne(File::class);
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format('d.m.Y');
     }
 }

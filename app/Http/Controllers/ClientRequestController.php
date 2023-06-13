@@ -23,6 +23,7 @@ class ClientRequestController extends Controller
     public function index()
     {
         return ClientRequest::with('user')
+            ->with('file')
             ->get();
     }
 

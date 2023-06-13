@@ -29,7 +29,7 @@ function ClientRequestRow(props) {
 
     let fileField = <td className={styles['table-field']}></td>
 
-    if(fileField.field) {
+    if(clientRequest.file) {
         fileField = <td className={styles['table-field']}>
             <a href={clientRequest.file.url}>{clientRequest.file.title}</a>
         </td>
