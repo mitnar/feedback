@@ -19,7 +19,7 @@ function HomePage() {
         clientRequestCreateRequest,
         clientRequestsGetAllRequest,
         setAnswerRequest
-    } = api;
+    } = api();
 
     const {
         isAnswerModal,
@@ -43,7 +43,7 @@ function HomePage() {
         }
     }, [authenticatedUser]);
 
-    const { logoutRequest } = api;
+    const { logoutRequest } = api();
     const navigate = useNavigate();
 
     const logout = () => {
@@ -54,8 +54,12 @@ function HomePage() {
         })
     }
 
-    const createClientRequest = (params) =>  {
-        clientRequestCreateRequest(params).then(res => {
+    const createClientRequest = (formData) =>  {
+        clientRequestCreateRequest(formData, {
+             headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }).then(res => {
             if(res.status === 201) {
                 const newClientRequests = [...clientRequests, res.data];
                 setClientRequests(newClientRequests);

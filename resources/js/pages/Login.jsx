@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login(props) {
 
-const { loginRequest } = api;
+const { loginRequest } = api();
 const navigate = useNavigate();
 
 const login = (params) =>  {
@@ -13,7 +13,7 @@ const login = (params) =>  {
         if(res.status === 204) {
             navigate("/home");
         }
-    })
+    });
 }
 
   return (

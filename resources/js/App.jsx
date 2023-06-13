@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from './pages/Main';
+import Main from './pages/Main/Main';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -17,11 +17,9 @@ function App() {
                         <Route path="/" element={<Main />}/>
                         <Route path="home" element={<Home />}/>
                         <Route path="login" element={<Login />}/>
+                        <Route path="register" element={<Register />}/>
                     </Routes>
                 </FeedbackContextProvider>
-                <Routes>
-                    <Route path="register" element={<Register />}/>
-                </Routes>
             </BrowserRouter>
     </main>
   )

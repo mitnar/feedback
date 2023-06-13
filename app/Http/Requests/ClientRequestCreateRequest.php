@@ -23,7 +23,8 @@ class ClientRequestCreateRequest extends FormRequest
     {
         return [
             'theme' => 'required|string',
-            'message' => 'required|string'
+            'message' => 'required|string',
+            'file' => 'file'
         ];
     }
 }

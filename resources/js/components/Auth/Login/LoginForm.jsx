@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from '../../../App.module.css';
+import ValidationErrors from '../../ValidationErrors/ValidationErrors';
+import { FeedbackContext } from '../../../context/FeedbackContext';
 
 function LoginForm(props) {
   const {
     login
   } = props;
+
+  const {
+    validationErrors
+  } = useContext(FeedbackContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,10 +50,13 @@ function LoginForm(props) {
                 required>
             </input>
         </div>
-        <button className={styles.btn}
-                type="submit">
-            Войти
-        </button>
+        <ValidationErrors errors={validationErrors}/>
+        <div class={styles['form-actions']}>
+            <button className={styles.btn}
+                    type="submit">
+                Войти
+            </button>
+        </div>
       </form>
   )
 }

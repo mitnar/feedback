@@ -30,10 +30,12 @@ function SetAnswerModal(props) {
                   required>
               </textarea>
           </div>
-          <button className={styles.btn}
-                  type="submit">
-              Сохранить
-          </button>
+          <div class={styles['form-actions']}>
+            <button className={styles.btn}
+                    type="submit">
+                Сохранить
+            </button>
+           </div>
         </form>
     )
 

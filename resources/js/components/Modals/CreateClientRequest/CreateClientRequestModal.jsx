@@ -10,12 +10,8 @@ function CreateClientRequestModal(props) {
         event.preventDefault();
 
         const formData = new FormData(event.target);
-
-        onSubmit({
-            theme: formData.get('theme'),
-            message: formData.get('message'),
-        });
-      };
+        onSubmit(formData);
+    };
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -44,10 +40,25 @@ function CreateClientRequestModal(props) {
                   required>
               </textarea>
           </div>
-          <button className={styles.btn}
-                  type="submit">
-              Сохранить
-          </button>
+          <div className={styles['field-container']}>
+              <label for="file"
+                     className={styles['field-label']}>
+                Выберите файл
+              </label>
+              <input id="file"
+                  className={styles['field-control']}
+                  type="file"
+                  name="file"
+                  autofocus>
+              </input>
+          </div>
+          <ValidationErrors errors={validationErrors}/>
+          <div class={styles['form-actions']}>
+            <button className={styles.btn}
+                    type="submit">
+                Сохранить
+            </button>
+          </div>
         </form>
     )
 

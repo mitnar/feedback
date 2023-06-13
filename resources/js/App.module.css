@@ -1,8 +1,34 @@
+@font-face {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/Rubik-Medium.ttf") format("truetype");
+    font-display: swap;
+  }
+
+@font-face {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/Rubik-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400px;
+    font-size: 13px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Параметры тени */
+}
+
 .main {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 40px 0;
 }
 
 .form {
@@ -27,9 +53,28 @@
     margin-bottom: 8px;
 }
 
+.form-actions {
+    text-align: center;
+}
+
 .btn {
     font-size: 16px;
-    padding: 15px;
+    padding: 10px 15px;
     border-radius: 4px;
     border: solid 1px #000000;
+    Background-color: #B3DCFD;
+    width: max-content;
+}
+
+.btn:hover {
+    border-color: #FCFCFC;
+}
+
+.btn:focus {
+    border-color: #2D3440;
+    outline: none;
+}
+
+.btn:active {
+    opacity: 70%;
 }

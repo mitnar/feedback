@@ -7,8 +7,9 @@ const FeedbackContext = React.createContext();
 function FeedbackContextProvider(props) {
 
     const [authenticatedUser, setAuthenticatedUser] = useState(null);
+    const [validationErrors, setValidationErrors] = useState({});
 
-    const { getAuthorizedUserRequest } = api;
+    const { getAuthorizedUserRequest } = api(true);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -33,10 +34,16 @@ function FeedbackContextProvider(props) {
         };
 
         fetchAuthenticatedUser();
+
+        return () => {
+            setValidationErrors({});
+        }
     }, [location.pathname])
 
     const value = {
         authenticatedUser,
+        validationErrors,
+        setValidationErrors
     };
 
     return (

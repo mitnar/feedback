@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Register() {
 
-  const { registerRequest } = api;
+  const { registerRequest } = api();
   const navigate = useNavigate();
 
   const register = (params) =>  {

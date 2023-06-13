@@ -16,6 +16,7 @@ class AuthenticatedController extends Controller
 
     protected function authorizedUser()
     {
-        return User::with('clientRequests')->find(Auth::id());
+        return User::with(['clientRequests', 'clientRequests.file'])
+            ->find(Auth::id());
     }
 }

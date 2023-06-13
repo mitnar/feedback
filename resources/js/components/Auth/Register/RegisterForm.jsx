@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styles from '../../../App.module.css';
+import { FeedbackContext } from '../../../context/FeedbackContext';
+import ValidationErrors from '../../ValidationErrors/ValidationErrors';
 
 function RegisterForm(props) {
   const {
     register
   } = props;
+
+  const {
+    validationErrors
+  } = useContext(FeedbackContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -70,10 +76,13 @@ function RegisterForm(props) {
                 required>
             </input>
         </div>
-        <button className={styles.btn}
-                type="submit">
-            Зарегистрироваться
-        </button>
+        <ValidationErrors errors={validationErrors}/>
+        <div class={styles['form-actions']}>
+            <button className={styles.btn}
+                    type="submit">
+                Зарегистрироваться
+            </button>
+        </div>
       </form>
   )
 }

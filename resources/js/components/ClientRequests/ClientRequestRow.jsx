@@ -27,6 +27,14 @@ function ClientRequestRow(props) {
         </td>
     }
 
+    let fileField = <td className={styles['table-field']}></td>
+
+    if(fileField.field) {
+        fileField = <td className={styles['table-field']}>
+            <a href={clientRequest.file.url}>{clientRequest.file.title}</a>
+        </td>
+    }
+
     return (
         <tr>
             <td className={styles['table-field']}>{clientRequest.id}</td>
@@ -34,6 +42,7 @@ function ClientRequestRow(props) {
             <td className={styles['table-field']}>{clientRequest.message}</td>
             <td className={styles['table-field']}>{clientRequest.answer}</td>
             {emailField}
+            {fileField}
             <td className={styles['table-field']}>{clientRequest.created_at}</td>
             {actionsField}
         </tr>

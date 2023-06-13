@@ -37,6 +37,7 @@ function ClientRequests(props) {
                             <th className={styles['table-field']}>Сообщение</th>
                             <th className={styles['table-field']}>Ответ от менеджера</th>
                             {emailHeader}
+                            <th className={styles['table-field']}>Файл</th>
                             <th className={styles['table-field']}>Дата создания</th>
                             {actionsHeader}
                         </tr>
