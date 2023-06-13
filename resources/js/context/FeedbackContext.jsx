@@ -1,23 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import api from '../api';
 
 const FeedbackContext = React.createContext();
 
 function FeedbackContextProvider(props) {
 
-    const { getAuthorizedUserRequest } = api;
+    const [authenticatedUser, setAuthenticatedUser] = useState(null);
 
-    const checkAuth = async () => {
+    const { getAuthorizedUserRequest } = api;
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const getAuthenticatedUser = async () => {
         try {
-          const response = await getAuthorizedUserRequest('check-auth');
-          return response.data.authenticated;
+          const response = await getAuthorizedUserRequest();
+          return response.data;
         } catch (error) {
-          return false;
+          console.log('произошла ошибка');
+          return null;
         }
     };
 
+    useEffect(() => {
+        const fetchAuthenticatedUser = async () => {
+            const user = await getAuthenticatedUser();
+            setAuthenticatedUser(user);
+
+            if(user !== null) {
+                navigate('/home');
+            }
+        };
+
+        fetchAuthenticatedUser();
+    }, [location.pathname])
+
     const value = {
-        checkAuth
+        authenticatedUser,
     };
 
     return (

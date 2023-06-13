@@ -1,0 +1,27 @@
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-field {
+    border: 1px solid;
+    padding: 5px 10px;
+}
+
+.edit-field {
+    text-align: center;
+}
+
+.edit-btn {
+    border: none;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-image: url("../../../images/edit.svg");
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+}
+

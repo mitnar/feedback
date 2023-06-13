@@ -2,31 +2,11 @@ import React, { useContext, useState, useEffect } from 'react';
 import LoginForm from '../components/Auth/Login/LoginForm';
 import api from '../api';
 import { useNavigate } from "react-router-dom";
-import { FeedbackContext } from '../context/FeedbackContext';
 
-function Home(props) {
+function Login(props) {
 
 const { loginRequest } = api;
 const navigate = useNavigate();
-
-const {
-    checkAuth,
-} = useContext(FeedbackContext);
-
-const [authenticated, setAuthenticated] = useState(false);
-
-useEffect(() => {
-    const fetchAuth = async () => {
-        const isAuthenticated = await checkAuth();
-        setAuthenticated(isAuthenticated);
-    };
-
-    fetchAuth();
-})
-
-if(authenticated) {
-    navigate('/home');
-}
 
 const login = (params) =>  {
     loginRequest(params).then(res => {
@@ -43,4 +23,4 @@ const login = (params) =>  {
   )
 }
 
-export default Home;
+export default Login;

@@ -15,13 +15,18 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\AuthenticatedController;
+use App\Http\Controllers\ClientRequestController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('main');
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::post('checkAuth', [AuthenticatedController::class, 'checkAuthorization']);
+Route::post('getAuthorizedUser', [AuthenticatedController::class, 'authorizedUser']);
+
+Route::resource('clientRequests', ClientRequestController::class)->only(['index', 'store']);
+
+Route::post('clientRequests/{clientRequest}/setAnswer', [ClientRequestController::class, 'setAnswer']);

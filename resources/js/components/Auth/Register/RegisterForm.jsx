@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../Auth.module.css';
+import styles from '../../../App.module.css';
 
 function RegisterForm(props) {
   const {
@@ -20,7 +20,7 @@ function RegisterForm(props) {
   };
 
   return (
-      <form className={styles['register-form']} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles['field-container']}>
             <label for="name"
                    className={styles['field-label']}>

@@ -1,29 +1,29 @@
 import React from 'react';
-import { FeedbackContextProvider } from './context/FeedbackContext';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from './pages/Main';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import styles from './App.module.css';
+import { FeedbackContextProvider } from './context/FeedbackContext';
 
 function App() {
 
-  
-
   return (
-      <FeedbackContextProvider>
-        <main className={styles.main}>
+    <main className={styles.main}>
             <BrowserRouter>
+                <FeedbackContextProvider>
+                    <Routes>
+                        <Route path="/" element={<Main />}/>
+                        <Route path="home" element={<Home />}/>
+                        <Route path="login" element={<Login />}/>
+                    </Routes>
+                </FeedbackContextProvider>
                 <Routes>
-                    <Route path="/" element={<Main />}/>
                     <Route path="register" element={<Register />}/>
-                    <Route path="home" element={<Home />}/>
-                    <Route path="login" element={<Login />}/>
                 </Routes>
             </BrowserRouter>
-        </main>
-      </FeedbackContextProvider>
+    </main>
   )
 }
 

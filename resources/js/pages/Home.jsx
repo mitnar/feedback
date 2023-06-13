@@ -1,14 +1,13 @@
 import React from 'react';
-import RegisterForm from '../components/Auth/Register/RegisterForm';
-import api from '../api';
+import { PersonalAccountContextProvider } from '../context/PersonalAccountContext';
+import HomePage from '../components/HomePage/HomePage';
 
 function Home() {
-
-  return (
-      <section>
-        Личная страница клиента
-      </section>
-  )
+    return (
+        <PersonalAccountContextProvider>
+            <HomePage/>
+        </PersonalAccountContextProvider>
+    )
 }
 
 export default Home;
